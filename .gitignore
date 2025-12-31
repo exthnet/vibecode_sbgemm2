@@ -1,0 +1,90 @@
+# VibeCodeHPC - Multi-Agent HPC Optimization System
+# .gitignore - Critical security files only
+# CD agent handles file-by-file review and anonymization
+
+# ===========================================
+# CRITICAL SECURITY FILES - NEVER COMMIT
+# ===========================================
+
+# Remote connection and authentication
+# _images/  # README用の参考画像は含める
+_remote_info/
+*.pem
+*.key
+*_rsa*
+*_dsa*
+*_ecdsa*
+*_ed25519*
+.ssh/
+ssh_config
+known_hosts*
+
+# User and project IDs (before anonymization)
+user_id.txt
+project_id.txt
+*.env
+.env*
+
+# HPC authentication and credentials
+.queuerc
+.slurmrc
+*_credentials*
+*_passwd*
+*_token*
+
+# ===========================================
+# STANDARD DEVELOPMENT FILES
+# ===========================================
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cache directories
+.cache/
+*.pkl.gz
+
+# ===========================================
+# NOTES
+# ===========================================
+
+# This minimal .gitignore focuses on critical security files only
+# The CD (Code Deployment) agent will:
+# - Review each file individually before committing
+# - Anonymize user IDs and sensitive information
+# - Decide whether .out/.err/.png files should be included
+# - Handle performance data and logs case-by-case
+
+# Key files that SHOULD be tracked (after CD review):
+# - README.md, CLAUDE.md, documentation
+# - changes.md (with anonymized IDs)
+# - sota_*.txt (performance tracking)
+# - Agent-shared/ configuration files
+# - Source code with anonymized references
+
+# ===========================================
+# TELEMETRY AND MONITORING
+# ===========================================
+
+# Claude Code telemetry logs
+claude_code_prompts*.jsonl
+claude_code_events*.jsonl
+telemetry/sub_agent_logs/
+
+# Docker volumes (if using local monitoring)
+**/grafana-data/
+**/prometheus-data/
+**/loki-data/
+
+# 古いバックアップファイル
+communication/start_agent_old.sh
