@@ -10,6 +10,35 @@
 
 ---
 
+### v1.3.0
+**変更点**: "4x4マイクロカーネルとレジスタブロッキング"
+**結果**: 未測定（SSH接続待ち）
+**コメント**: "4x4アンローリングで16個のAVX-512累積レジスタを使用。BLOCK_M/N=128に拡大。参考論文のタイリング戦略を参考"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:23:09Z`
+- [ ] **compile**
+    - status: `pending`
+- [ ] **job**
+    - id: `未投入`
+    - resource_group: `a-batch-low`
+    - status: `pending`
+- [ ] **test**
+    - performance: `未測定`
+    - unit: `GFLOPS`
+- **params**:
+    - BLOCK_M: `128`
+    - BLOCK_N: `128`
+    - BLOCK_K: `512`
+    - UNROLL_M: `4`
+    - UNROLL_N: `4`
+    - SIMD: `AVX-512`
+
+</details>
+
+---
+
 ### v1.2.0
 **変更点**: "AVX-512対応とブロックサイズ拡大"
 **結果**: 未測定（SSH接続待ち）

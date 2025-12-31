@@ -10,6 +10,30 @@
 
 ---
 
+### v1.1.0
+**変更点**: "詳細ベンチマーク機能追加（複数サイズ自動テスト、統計計算、CSV出力）"
+**結果**: コード作成完了（実行待ち）
+**コメント**: "9サイズ（128〜4096）の自動ベンチマーク、標準偏差・帯域幅計測を追加"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:22:15Z`
+- [ ] **compile**
+    - status: `pending`
+- [ ] **job**
+    - id: `未投入`
+    - resource_group: `a-batch-low`
+    - status: `pending`
+- [ ] **test**
+    - status: `pending`
+    - performance: `TBD`
+    - unit: `GFLOPS`
+- **params**:
+    - matrix_sizes: `128, 256, 512, 768, 1024, 1536, 2048, 3072, 4096`
+    - csv_output: `benchmark_results.csv`
+
+</details>
+
 ### v1.0.0
 **変更点**: "MKL cblas_sbgemm を使用した BF16 行列積の初期実装"
 **結果**: コード作成完了（実行待ち）
