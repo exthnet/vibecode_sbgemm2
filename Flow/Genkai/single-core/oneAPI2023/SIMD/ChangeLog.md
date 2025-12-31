@@ -10,6 +10,24 @@
 
 ---
 
+### v1.2.0
+**変更点**: "キャッシュブロッキング最適化追加"
+**結果**: コード作成完了（コンパイル未実行）`pending`
+**コメント**: "BLOCK_M=64, BLOCK_N=256, BLOCK_K=256でL2キャッシュ最適化、ループ順序jj-kk-ii"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:19:44Z`
+- [ ] **compile**
+    - status: `pending`
+    - message: "SSH接続問題のため未実行"
+- [ ] **job**
+    - status: `pending`
+- [ ] **test**
+    - status: `pending`
+
+</details>
+
 ### v1.1.0
 **変更点**: "AVX-512 SIMD最適化実装"
 **結果**: コード作成完了（コンパイル未実行）`pending`
