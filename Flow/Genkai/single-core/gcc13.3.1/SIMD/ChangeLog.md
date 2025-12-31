@@ -10,6 +10,35 @@
 
 ---
 
+### v1.2.0
+**変更点**: "ループタイリング（ブロッキング）でキャッシュ効率向上"
+**結果**: 準備中（SSH接続待ち）
+**コメント**: "4x8マイクロカーネル、BLOCK_M=32/N=64/K=64でL1/L2キャッシュ最適化"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:20:57Z`
+- [ ] **compile**
+    - status: `pending`
+- [ ] **job**
+    - id: `pending`
+    - resource_group: `a-batch-low`
+- [ ] **test**
+    - performance: `pending`
+    - unit: `GFLOPS`
+- **params**:
+    - simd: `AVX2`
+    - fma: `enabled`
+    - tiling: `enabled`
+    - block_m: `32`
+    - block_n: `64`
+    - block_k: `64`
+    - micro_kernel: `4x8`
+
+</details>
+
+---
+
 ### v1.1.1
 **変更点**: "AVX2 SIMD最適化（FMA使用、bf16→fp32変換最適化）"
 **結果**: 準備中（SSH接続待ち）

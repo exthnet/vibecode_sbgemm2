@@ -10,6 +10,35 @@
 
 ---
 
+### v1.2.0
+**変更点**: "AVX-512対応とブロックサイズ拡大"
+**結果**: 未測定（SSH接続待ち）
+**コメント**: "AVX-512を使用して16要素同時処理。BLOCK_M/N=96に拡大。AVX-512非対応時はAVX2にフォールバック"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:20:58Z`
+- [ ] **compile**
+    - status: `pending`
+    - message: "SSH接続復旧待ち"
+- [ ] **job**
+    - id: `未投入`
+    - resource_group: `a-batch-low`
+    - status: `pending`
+- [ ] **test**
+    - performance: `未測定`
+    - unit: `GFLOPS`
+- **params**:
+    - BLOCK_M: `96`
+    - BLOCK_N: `96`
+    - BLOCK_K: `512`
+    - SIMD: `AVX-512 (AVX2 fallback)`
+    - B_transpose: `true`
+
+</details>
+
+---
+
 ### v1.1.0
 **変更点**: "B行列事前転置によるSIMD効率向上"
 **結果**: 未測定（SSH接続待ち）
