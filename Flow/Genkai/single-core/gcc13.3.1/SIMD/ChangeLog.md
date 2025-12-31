@@ -10,6 +10,37 @@
 
 ---
 
+### v1.3.0
+**変更点**: "6x16マイクロカーネル、K-unrolling(x4)、プリフェッチ追加"
+**結果**: 準備中（SSH接続待ち）
+**コメント**: "レジスタブロッキング最大化、12個のAVX2アキュムレータ使用"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:23:24Z`
+- [ ] **compile**
+    - status: `pending`
+- [ ] **job**
+    - id: `pending`
+    - resource_group: `a-batch-low`
+- [ ] **test**
+    - performance: `pending`
+    - unit: `GFLOPS`
+- **params**:
+    - simd: `AVX2`
+    - fma: `enabled`
+    - tiling: `enabled`
+    - block_m: `64`
+    - block_n: `64`
+    - block_k: `128`
+    - micro_kernel: `6x16`
+    - k_unroll: `4`
+    - prefetch: `enabled`
+
+</details>
+
+---
+
 ### v1.2.0
 **変更点**: "ループタイリング（ブロッキング）でキャッシュ効率向上"
 **結果**: 準備中（SSH接続待ち）
