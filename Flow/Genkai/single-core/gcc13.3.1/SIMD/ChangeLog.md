@@ -1,0 +1,30 @@
+# SIMD📁 `ChangeLog.md`
+🤖PG1.3
+- **ハードウェア**：Genkai single-core（1コア）
+- **モジュール**：GCC 13.3.1 (module load gcc-toolset/13)
+
+## Change Log
+
+- 基本の型：`ChangeLog_format.md`に記載
+- PMオーバーライド：`ChangeLog_format_PM_override.md`に記載（PMがテンプレートから生成）
+
+---
+
+### v1.0.0
+**変更点**: "ベースラインコード（sbgemm_nolib.c）の性能測定"
+**結果**: 準備中
+**コメント**: "BaseCodeのsbgemm.cをそのまま実行してベースライン性能を測定"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:10:37Z`
+- [ ] **compile**
+    - status: `pending`
+- [ ] **job**
+    - id: `pending`
+    - resource_group: `a-batch-low`
+- [ ] **test**
+    - performance: `pending`
+    - unit: `GFLOPS`
+
+</details>
