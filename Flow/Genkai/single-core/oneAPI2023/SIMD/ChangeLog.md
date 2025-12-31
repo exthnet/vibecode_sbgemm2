@@ -10,4 +10,40 @@
 
 ---
 
+### v1.1.0
+**変更点**: "AVX-512 SIMD最適化実装"
+**結果**: コード作成完了（コンパイル未実行）`pending`
+**コメント**: "ループ順序変更(i-k-j)、AVX-512ベクトル化、アライン済みメモリ割当"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:17:34Z`
+- [ ] **compile**
+    - status: `pending`
+    - message: "SSH接続問題のため未実行"
+- [ ] **job**
+    - status: `pending`
+- [ ] **test**
+    - status: `pending`
+
+</details>
+
+### v1.0.0
+**変更点**: "ベースラインコード作成（性能測定機能付き）"
+**結果**: コード作成完了（コンパイル未実行）`pending`
+**コメント**: "BaseCode/sbgemm.cベースにタイマー追加、GFLOPS計算機能実装"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:15:00Z`
+- [ ] **compile**
+    - status: `pending`
+    - message: "SSH接続問題のため未実行"
+- [ ] **job**
+    - status: `pending`
+- [ ] **test**
+    - status: `pending`
+
+</details>
+
 <!-- 新しいバージョンはここより上に追加 -->

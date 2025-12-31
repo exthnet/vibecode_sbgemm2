@@ -15,6 +15,40 @@
 
 ---
 
+### v0.0.2
+**変更点**: "SIMD最適化コードv1.0.0準備完了"
+**結果**: SSH接続失敗 `Permission denied (publickey)`
+**コメント**: "SSH鍵認証未設定。ローカルでv1.0.0コード・Makefile・ジョブスクリプト準備完了。接続復旧後に即実行可能"
+
+<details>
+
+- **生成時刻**: `2025-12-31T15:17:03Z`
+- [x] **local_prep**
+    - sbgemm_v1.0.0.c: `完了` (AVX-512 FMA最適化)
+    - Makefile: `完了`
+    - job.sh: `完了`
+    - setup.md: `完了`
+- [ ] **compile**
+    - status: `pending`
+    - message: "SSH鍵認証待ち"
+- [ ] **job**
+    - id: `-`
+    - resource_group: `a-batch-low`
+    - status: `pending`
+- [ ] **test**
+    - status: `pending`
+- **params**:
+    - nodes: `1`
+    - cores: `1`
+- **prepared_files**:
+    - `sbgemm_v1.0.0.c`: AVX-512 FMA + キャッシュブロッキング
+    - `Makefile`: icx -O3 -march=native -mavx512f
+    - `job.sh`: a-batch-low, 5分, 複数サイズベンチマーク
+
+</details>
+
+---
+
 ### v0.0.1
 **変更点**: "ベースコード確認・環境調査準備"
 **結果**: SSH接続失敗 `No route to host`
