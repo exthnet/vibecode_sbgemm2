@@ -57,6 +57,10 @@ __pycache__/
 # Claude Code agent configuration
 .claude/
 
+# VibeCodeHPC agent files (should not be in GitHub)
+ssh_sftp_sessions.json
+start_agent_local.sh
+
 # ===========================================
 # NOTES
 # ===========================================
