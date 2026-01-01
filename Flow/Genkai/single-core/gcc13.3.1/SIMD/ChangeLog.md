@@ -8,6 +8,46 @@
 - 基本の型：`ChangeLog_format.md`に記載
 - PMオーバーライド：`ChangeLog_format_PM_override.md`に記載
 
+### v1.2.0
+**変更点**: "AVX-256インターリーブパッキング、AVX-512 C転送最適化"
+**結果**: 理論性能の32.6%達成 `633.69 GFLOPS`
+**コメント**: "最大サイズで1%改善。中間サイズで性能低下あり、パッキングオーバーヘッド要改善"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:56:00Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - log: `compile_v1.2.0.log`
+- [x] **job**
+    - id: `4610366`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:56:10Z`
+    - end_time: `2026-01-01T09:56:35Z`
+    - runtime_sec: `25`
+    - status: `success`
+- [x] **test**
+    - performance: `633.69`
+    - unit: `GFLOPS`
+    - efficiency: `32.6%`
+- [x] **sota**
+    - scope: `local`
+- **params**:
+    - block_k: `1536`
+    - block_n: `480`
+    - kernel: `Tiling_B 2x3 + AVX-256 pack`
+- **results_by_size**:
+    - 256: `290.82 GFLOPS (14.9%)`
+    - 512: `544.93 GFLOPS (28.0%)`
+    - 1024: `583.14 GFLOPS (30.0%)`
+    - 2048: `590.14 GFLOPS (30.3%)`
+    - 4096: `559.99 GFLOPS (28.8%)`
+    - 8192: `487.80 GFLOPS (25.1%)`
+    - 10000: `633.69 GFLOPS (32.6%)`
+
+</details>
+
 ### v1.1.0
 **変更点**: "Tiling_B 2x3カーネル実装、AVX-512プリフェッチ追加"
 **結果**: 理論性能の32.2%達成 `627.33 GFLOPS`
