@@ -1,133 +1,64 @@
 # SIMD📁 `ChangeLog.md`
-🤖PG1.3
-- **ハードウェア**：Genkai single-core（1コア）
-- **モジュール**：GCC 13.3.1 (module load gcc-toolset/13)
+🤖PG1.1
+- **ハードウェア**：玄界 Node Group A（1コア）
+- **モジュール**：GCC 13.3.1
 
 ## Change Log
 
 - 基本の型：`ChangeLog_format.md`に記載
-- PMオーバーライド：`ChangeLog_format_PM_override.md`に記載（PMがテンプレートから生成）
+- PMオーバーライド：`ChangeLog_format_PM_override.md`に記載
 
----
-
-### v1.3.0
-**変更点**: "6x16マイクロカーネル、K-unrolling(x4)、プリフェッチ追加"
-**結果**: 準備中（SSH接続待ち）
-**コメント**: "レジスタブロッキング最大化、12個のAVX2アキュムレータ使用"
+### v1.0.1
+**変更点**: "タイルレジスタ番号を定数に修正、2x2カーネル実装"
+**結果**: 理論性能の28.8%達成 `560.31 GFLOPS`
+**コメント**: "v1.0.0のコンパイルエラー修正。目標65%に対し28.8%、改善余地あり"
 
 <details>
 
-- **生成時刻**: `2025-12-31T15:23:24Z`
-- [ ] **compile**
-    - status: `pending`
-- [ ] **job**
-    - id: `pending`
+- **生成時刻**: `2026-01-01T09:46:01Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - log: `compile_v1.0.1.log`
+- [x] **job**
+    - id: `4610350`
     - resource_group: `a-batch-low`
-- [ ] **test**
-    - performance: `pending`
+    - start_time: `2026-01-01T09:46:26Z`
+    - end_time: `2026-01-01T09:46:50Z`
+    - runtime_sec: `24`
+    - status: `success`
+- [x] **test**
+    - performance: `560.31`
     - unit: `GFLOPS`
+    - efficiency: `28.8%`
 - **params**:
-    - simd: `AVX2`
-    - fma: `enabled`
-    - tiling: `enabled`
-    - block_m: `64`
-    - block_n: `64`
-    - block_k: `128`
-    - micro_kernel: `6x16`
-    - k_unroll: `4`
-    - prefetch: `enabled`
+    - block_k: `1536`
+    - block_n: `480`
+    - kernel: `2x2 tiles`
+- **results_by_size**:
+    - 256: `132.06 GFLOPS (6.8%)`
+    - 512: `274.23 GFLOPS (14.1%)`
+    - 1024: `431.47 GFLOPS (22.2%)`
+    - 2048: `467.35 GFLOPS (24.0%)`
+    - 4096: `531.80 GFLOPS (27.3%)`
+    - 8192: `528.66 GFLOPS (27.2%)`
+    - 10000: `560.31 GFLOPS (28.8%)`
 
 </details>
-
----
-
-### v1.2.0
-**変更点**: "ループタイリング（ブロッキング）でキャッシュ効率向上"
-**結果**: 準備中（SSH接続待ち）
-**コメント**: "4x8マイクロカーネル、BLOCK_M=32/N=64/K=64でL1/L2キャッシュ最適化"
-
-<details>
-
-- **生成時刻**: `2025-12-31T15:20:57Z`
-- [ ] **compile**
-    - status: `pending`
-- [ ] **job**
-    - id: `pending`
-    - resource_group: `a-batch-low`
-- [ ] **test**
-    - performance: `pending`
-    - unit: `GFLOPS`
-- **params**:
-    - simd: `AVX2`
-    - fma: `enabled`
-    - tiling: `enabled`
-    - block_m: `32`
-    - block_n: `64`
-    - block_k: `64`
-    - micro_kernel: `4x8`
-
-</details>
-
----
-
-### v1.1.1
-**変更点**: "AVX2 SIMD最適化（FMA使用、bf16→fp32変換最適化）"
-**結果**: 準備中（SSH接続待ち）
-**コメント**: "8要素並列処理、FMAによるfused multiply-add、v1.1.0のバグ修正"
-
-<details>
-
-- **生成時刻**: `2025-12-31T15:18:46Z`
-- [ ] **compile**
-    - status: `pending`
-- [ ] **job**
-    - id: `pending`
-    - resource_group: `a-batch-low`
-- [ ] **test**
-    - performance: `pending`
-    - unit: `GFLOPS`
-- **params**:
-    - simd: `AVX2`
-    - fma: `enabled`
-    - vector_width: `8 floats (256-bit)`
-
-</details>
-
----
-
-### v1.1.0
-**変更点**: "AVX2 SIMD最適化（初期実装）"
-**結果**: バグあり - v1.1.1で修正
-**コメント**: "カーネル内のFMA適用に問題があったため修正版を作成"
-
-<details>
-
-- **生成時刻**: `2025-12-31T15:16:00Z`
-- [ ] **compile**
-    - status: `pending`
-- [ ] **job**
-    - status: `skipped`
-    - reason: `バグのためv1.1.1に置き換え`
-
-</details>
-
----
 
 ### v1.0.0
-**変更点**: "ベースラインコード（sbgemm_nolib.c）の性能測定"
-**結果**: 準備中
-**コメント**: "BaseCodeのsbgemm.cをそのまま実行してベースライン性能を測定"
+**変更点**: "Intel AMX Tiling_B手法初期実装"
+**結果**: コンパイルエラー（タイルレジスタ番号が変数）
+**コメント**: "reference.pdfのTiling_B手法（k=1536, n=480）を実装試行。AMX intrinsicsの制約によりエラー"
 
 <details>
 
-- **生成時刻**: `2025-12-31T15:10:37Z`
+- **生成時刻**: `2026-01-01T09:40:00Z`
 - [ ] **compile**
-    - status: `pending`
+    - status: `error`
+    - message: "bad register name `%tmmtj' - タイル番号が変数のためアセンブラエラー"
+    - log: `compile_v1.0.0.log`
 - [ ] **job**
-    - id: `pending`
-    - resource_group: `a-batch-low`
-- [ ] **test**
-    - performance: `pending`
-    - unit: `GFLOPS`
+    - status: `not_submitted`
 
 </details>
