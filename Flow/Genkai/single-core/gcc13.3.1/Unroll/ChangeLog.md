@@ -10,6 +10,44 @@
 
 ---
 
+### v1.2.0
+**変更点**: "4x4タイルブロッキングによるレジスタ最大活用"
+**結果**: 理論性能の0.56%達成 `10.84 GFLOPS`
+**コメント**: "v1.1.0比71%向上。コンパイラの自動SIMD化が効果的"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:50:53Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - options: `-O3 -march=native`
+- [x] **job**
+    - id: `4610360`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:50:10Z`
+    - end_time: `2026-01-01T09:50:12Z`
+    - runtime_sec: `2`
+    - status: `success`
+- [x] **test**
+    - performance: `10.84`
+    - unit: `GFLOPS`
+    - efficiency: `0.56%`
+    - avg_time: `0.198120 sec`
+- [x] **sota**
+    - scope: `local`
+- **params**:
+    - M: `1024`
+    - N: `1024`
+    - K: `1024`
+    - iterations: `10`
+    - tile_i: `4`
+    - tile_j: `4`
+
+</details>
+
+---
+
 ### v1.1.0
 **変更点**: "2x4タイルブロッキング + K8倍展開によるレジスタ最適化"
 **結果**: 理論性能の0.32%達成 `6.31 GFLOPS`

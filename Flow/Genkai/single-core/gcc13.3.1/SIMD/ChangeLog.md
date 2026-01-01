@@ -8,6 +8,46 @@
 - 基本の型：`ChangeLog_format.md`に記載
 - PMオーバーライド：`ChangeLog_format_PM_override.md`に記載
 
+### v1.1.0
+**変更点**: "Tiling_B 2x3カーネル実装、AVX-512プリフェッチ追加"
+**結果**: 理論性能の32.2%達成 `627.33 GFLOPS`
+**コメント**: "v1.0.1から12%改善。目標65%に向け継続最適化"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:50:00Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - log: `compile_v1.1.0.log`
+- [x] **job**
+    - id: `4610359`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:50:10Z`
+    - end_time: `2026-01-01T09:50:32Z`
+    - runtime_sec: `22`
+    - status: `success`
+- [x] **test**
+    - performance: `627.33`
+    - unit: `GFLOPS`
+    - efficiency: `32.2%`
+- [x] **sota**
+    - scope: `local`
+- **params**:
+    - block_k: `1536`
+    - block_n: `480`
+    - kernel: `Tiling_B 2x3`
+- **results_by_size**:
+    - 256: `167.55 GFLOPS (8.6%)`
+    - 512: `319.05 GFLOPS (16.4%)`
+    - 1024: `494.80 GFLOPS (25.4%)`
+    - 2048: `523.72 GFLOPS (26.9%)`
+    - 4096: `585.86 GFLOPS (30.1%)`
+    - 8192: `584.70 GFLOPS (30.1%)`
+    - 10000: `627.33 GFLOPS (32.2%)`
+
+</details>
+
 ### v1.0.1
 **変更点**: "タイルレジスタ番号を定数に修正、2x2カーネル実装"
 **結果**: 理論性能の28.8%達成 `560.31 GFLOPS`
