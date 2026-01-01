@@ -10,6 +10,45 @@
 
 ---
 
+### v1.1.0
+**変更点**: "2x4タイルブロッキング + K8倍展開によるレジスタ最適化"
+**結果**: 理論性能の0.32%達成 `6.31 GFLOPS`
+**コメント**: "v1.0.0比6倍向上。レジスタ再利用によりメモリアクセス削減"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:47:34Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - options: `-O3 -march=native`
+- [x] **job**
+    - id: `4610351`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:47:01Z`
+    - end_time: `2026-01-01T09:47:04Z`
+    - runtime_sec: `3`
+    - status: `success`
+- [x] **test**
+    - performance: `6.31`
+    - unit: `GFLOPS`
+    - efficiency: `0.32%`
+    - avg_time: `0.340413 sec`
+- [x] **sota**
+    - scope: `local`
+- **params**:
+    - M: `1024`
+    - N: `1024`
+    - K: `1024`
+    - iterations: `10`
+    - tile_i: `2`
+    - tile_j: `4`
+    - unroll_k: `8`
+
+</details>
+
+---
+
 ### v1.0.0
 **変更点**: "Kループ4倍展開によるループアンローリング最適化"
 **結果**: 理論性能の0.05%達成 `1.04 GFLOPS`
