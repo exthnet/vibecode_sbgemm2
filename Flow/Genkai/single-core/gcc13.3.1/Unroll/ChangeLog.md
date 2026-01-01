@@ -10,6 +10,35 @@
 
 ---
 
+### v1.2.1
+**変更点**: "v1.2.0にfunroll-loopsオプション追加"
+**結果**: 理論性能の0.53%達成 `10.35 GFLOPS`
+**コメント**: "v1.2.0より低下。funroll-loopsは逆効果"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:56:00Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - options: `-O3 -march=native -funroll-loops`
+- [x] **job**
+    - id: `4610364`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:55:27Z`
+    - end_time: `2026-01-01T09:55:29Z`
+    - runtime_sec: `2`
+    - status: `success`
+- [x] **test**
+    - performance: `10.35`
+    - unit: `GFLOPS`
+    - efficiency: `0.53%`
+    - avg_time: `0.207403 sec`
+
+</details>
+
+---
+
 ### v1.3.0
 **変更点**: "8x8タイル + __builtin_prefetch + restrict修飾子"
 **結果**: 理論性能の0.54%達成 `10.53 GFLOPS`
