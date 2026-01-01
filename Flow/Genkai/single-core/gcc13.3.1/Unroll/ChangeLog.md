@@ -10,6 +10,42 @@
 
 ---
 
+### v1.3.0
+**変更点**: "8x8タイル + __builtin_prefetch + restrict修飾子"
+**結果**: 理論性能の0.54%達成 `10.53 GFLOPS`
+**コメント**: "v1.2.0より若干低下。8x8タイルはレジスタスピル発生の可能性。4x4が最適"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:54:00Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - options: `-O3 -march=native -funroll-loops`
+- [x] **job**
+    - id: `4610362`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:53:40Z`
+    - end_time: `2026-01-01T09:53:42Z`
+    - runtime_sec: `2`
+    - status: `success`
+- [x] **test**
+    - performance: `10.53`
+    - unit: `GFLOPS`
+    - efficiency: `0.54%`
+    - avg_time: `0.203903 sec`
+- **params**:
+    - M: `1024`
+    - N: `1024`
+    - K: `1024`
+    - iterations: `10`
+    - tile_i: `8`
+    - tile_j: `8`
+
+</details>
+
+---
+
 ### v1.2.0
 **変更点**: "4x4タイルブロッキングによるレジスタ最大活用"
 **結果**: 理論性能の0.56%達成 `10.84 GFLOPS`
