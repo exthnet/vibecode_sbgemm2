@@ -11,6 +11,44 @@
 
 ---
 
+### v1.2.0
+**変更点**: "8x8レジスタブロッキング + プリフェッチ"
+**結果**: 理論性能の0.71%達成 `13.89 GFLOPS` (v1.1.0比1.9倍)
+**コメント**: "8x8ブロッキングとプリフェッチで性能2倍弱向上。さらなる向上にはSIMD必要"
+
+<details>
+
+- **生成時刻**: `2026-01-01T10:00:00Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - log: `compile_v1.2.0.log`
+- [x] **job**
+    - id: `4610369`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:57:40Z`
+    - end_time: `2026-01-01T09:59:30Z`
+    - runtime_sec: `110`
+    - status: `success`
+- [x] **test**
+    - status: `pass`
+    - performance_1024: `13.89 GFLOPS`
+    - performance_2048: `13.78 GFLOPS`
+    - performance_4096: `12.51 GFLOPS`
+    - unit: `GFLOPS`
+    - verification: `pass`
+- **params**:
+    - BLOCK_M: `64`
+    - BLOCK_N: `512`
+    - BLOCK_K: `512`
+    - MR: `8`
+    - NR: `8`
+    - optimization: `register blocking 8x8, software prefetch, larger cache blocks`
+
+</details>
+
+---
+
 ### v1.1.0
 **変更点**: "レジスタブロッキング(4x4) + 小ブロックサイズ"
 **結果**: 理論性能の0.37%達成 `7.17 GFLOPS` (v1.0.0比2.3倍)
