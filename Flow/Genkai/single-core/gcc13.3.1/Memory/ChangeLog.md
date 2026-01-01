@@ -11,6 +11,44 @@
 
 ---
 
+### v1.1.0
+**変更点**: "レジスタブロッキング(4x4) + 小ブロックサイズ"
+**結果**: 理論性能の0.37%達成 `7.17 GFLOPS` (v1.0.0比2.3倍)
+**コメント**: "4x4レジスタブロッキングで性能2倍向上。まだ低いためさらなる最適化必要"
+
+<details>
+
+- **生成時刻**: `2026-01-01T09:48:00Z`
+- [x] **compile**
+    - status: `success`
+    - warnings: `none`
+    - log: `compile_v1.1.0.log`
+- [x] **job**
+    - id: `4610357`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:49:39Z`
+    - end_time: `2026-01-01T09:51:34Z`
+    - runtime_sec: `115`
+    - status: `success`
+- [x] **test**
+    - status: `pass`
+    - performance_1024: `7.17 GFLOPS`
+    - performance_2048: `6.60 GFLOPS`
+    - performance_4096: `5.28 GFLOPS`
+    - unit: `GFLOPS`
+    - verification: `pass`
+- **params**:
+    - BLOCK_M: `64`
+    - BLOCK_N: `256`
+    - BLOCK_K: `256`
+    - MR: `4`
+    - NR: `4`
+    - optimization: `register blocking 4x4, smaller cache blocks`
+
+</details>
+
+---
+
 ### v1.0.0
 **変更点**: "BUFFER_A/Bパッキング + キャッシュブロッキング実装"
 **結果**: 理論性能の0.16%達成 `3.09 GFLOPS`
