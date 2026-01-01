@@ -10,6 +10,34 @@
 
 ---
 
+### v1.4.0
+**変更点**: "ループ交換(k-i-j順序) + 4x4タイル"
+**結果**: 理論性能の0.06%達成 `1.14 GFLOPS`
+**コメント**: "大幅低下。Cへの書き込み頻度増加でキャッシュ効率悪化。i-j-kが最適"
+
+<details>
+
+- **生成時刻**: `2026-01-01T10:00:00Z`
+- [x] **compile**
+    - status: `success`
+    - options: `-O3 -march=native`
+- [x] **job**
+    - id: `4610374`
+    - resource_group: `a-batch-low`
+    - start_time: `2026-01-01T09:59:58Z`
+    - end_time: `2026-01-01T10:00:18Z`
+    - runtime_sec: `20`
+    - status: `success`
+- [x] **test**
+    - performance: `1.14`
+    - unit: `GFLOPS`
+    - efficiency: `0.06%`
+    - avg_time: `1.877693 sec`
+
+</details>
+
+---
+
 ### v1.2.1
 **変更点**: "v1.2.0にfunroll-loopsオプション追加"
 **結果**: 理論性能の0.53%達成 `10.35 GFLOPS`

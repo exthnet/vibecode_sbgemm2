@@ -12,21 +12,32 @@
 
 ### v1.1.0
 **変更点**: "最適化ブロックサイズ（BLOCK_K=1536, BLOCK_N=480）"
-**結果**: 実行中 `pending`
-**コメント**: "reference.pdf Table 10-12の最適パラメータを適用"
+**結果**: 最大 `2.62 GFLOPS` (理論性能の0.13%)
+**コメント**: "ブロックサイズ最適化のみでは性能向上は限定的。SIMD/パッキングとの組み合わせが必要"
 
 <details>
 
 - **生成時刻**: `2026-01-01T10:00:00Z`
-- [ ] **compile**
-    - status: `pending`
-- [ ] **job**
+- [x] **compile**
+    - status: `success`
+- [x] **job**
     - id: `4610370`
     - resource_group: `a-batch-low`
-    - status: `running`
-- [ ] **test**
-    - performance: `pending`
+    - start_time: `2026-01-01T10:01:00Z`
+    - end_time: `2026-01-01T10:02:00Z`
+    - runtime_sec: `43`
+    - status: `success`
+- [x] **test**
+    - performance: `2.62`
     - unit: `GFLOPS`
+    - efficiency: `0.13%`
+    - results: |
+        500: 2.62 GFLOPS
+        1000: 2.30 GFLOPS
+        1500: 2.42 GFLOPS
+        2000: 2.62 GFLOPS
+        2500: 2.55 GFLOPS
+        3000: 2.57 GFLOPS
 - **params**:
     - BLOCK_K: `1536`
     - BLOCK_N: `480`
